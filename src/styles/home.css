@@ -1,0 +1,252 @@
+.home{
+    width:100%;
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    position:relative;
+    overflow:hidden;
+
+    background:
+        radial-gradient(circle at top left,#FFFDF7 0%,#F7F4EA 45%,#EFE7D5 100%);
+}
+
+/* ---------- Background ---------- */
+
+.home::before{
+
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background-image:
+        radial-gradient(rgba(255,255,255,.25) 1px,transparent 1px);
+
+    background-size:18px 18px;
+
+    opacity:.35;
+
+    pointer-events:none;
+}
+
+.home::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:900px;
+    height:900px;
+
+    top:-420px;
+    right:-240px;
+
+    background:
+        radial-gradient(circle,
+        rgba(255,255,255,.45),
+        transparent 70%);
+
+    pointer-events:none;
+}
+
+/* ---------- Hero ---------- */
+
+.hero{
+
+    position:relative;
+
+    z-index:20;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    text-align:center;
+}
+
+.heroTitle{
+
+    font-family:"Rubik Bubbles";
+
+    font-size:clamp(5rem,10vw,8.5rem);
+
+    line-height:.9;
+
+    color:#20331D;
+
+    text-wrap:balance;
+
+    text-shadow:
+        0 3px 0 rgba(255,255,255,.25);
+}
+
+.heroSubtitle{
+
+    margin-top:28px;
+
+    font-size:1.2rem;
+
+    letter-spacing:14px;
+
+    font-weight:700;
+
+    color:#3F5739;
+}
+
+.ctaButton{
+
+    margin-top:58px;
+
+    padding:20px 54px;
+
+    border:none;
+
+    border-radius:999px;
+
+    background:#2E5D34;
+
+    color:white;
+
+    font-size:1.15rem;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    cursor:pointer;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        background .25s ease;
+
+    box-shadow:
+        0 14px 34px rgba(46,93,52,.22);
+}
+
+.ctaButton:hover{
+
+    transform:
+        translateY(-4px)
+        scale(1.04);
+
+    background:#356d3c;
+
+    box-shadow:
+        0 22px 42px rgba(46,93,52,.28);
+}
+
+/* ---------- Decorations ---------- */
+
+.floatingDecoration{
+
+    position:absolute;
+
+    user-select:none;
+
+    pointer-events:none;
+
+    z-index:5;
+
+    will-change:transform;
+
+    filter:
+        drop-shadow(0 10px 18px rgba(0,0,0,.08));
+
+    animation:
+        decorationFloat 8s ease-in-out infinite;
+}
+
+/* Chrome stars should always sit above everything */
+
+.floatingDecoration[src*="star"]{
+
+    z-index:12;
+
+    filter:
+        drop-shadow(0 0 18px rgba(255,255,255,.45))
+        drop-shadow(0 12px 20px rgba(0,0,0,.08));
+}
+
+/* Sparkles */
+
+.floatingDecoration[src*="sparkle"]{
+
+    opacity:.9;
+}
+
+/* Herbs */
+
+.floatingDecoration[src*="dill"],
+.floatingDecoration[src*="cilantro"],
+.floatingDecoration[src*="greens"]{
+
+    z-index:2;
+
+    opacity:.95;
+}
+
+/* Cucumbers */
+
+.floatingDecoration[src*="cucumber"]{
+
+    z-index:4;
+}
+
+/* Garlic + olives */
+
+.floatingDecoration[src*="garlic"],
+.floatingDecoration[src*="olive"]{
+
+    z-index:6;
+}
+
+@keyframes decorationFloat{
+
+    0%{
+
+        transform:
+            translateY(0px);
+
+    }
+
+    50%{
+
+        transform:
+            translateY(-10px);
+
+    }
+
+    100%{
+
+        transform:
+            translateY(0px);
+
+    }
+
+}
+
+.pageDecorations{
+
+    position:absolute;
+
+    inset:0;
+
+    min-height:100%;
+
+    pointer-events:none;
+
+    z-index:0;
+
+    overflow:hidden;
+
+}
+
+.pageDecorations .floatingDecoration{
+
+    pointer-events:none;
+
+}

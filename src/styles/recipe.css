@@ -1,0 +1,393 @@
+.recipePage{
+
+    min-height:100vh;
+
+    position:relative;
+
+    background:#F7F4EA;
+
+    padding:48px clamp(18px,4vw,48px);
+
+}
+
+.recipeHeader{
+
+    max-width:1280px;
+
+    margin:0 auto 54px;
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+.backButton{
+
+    width:56px;
+
+    height:56px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-decoration:none;
+
+    background:white;
+
+    color:#20331D;
+
+    box-shadow:0 8px 24px rgba(0,0,0,.08);
+
+    transition:.25s;
+
+}
+
+.backButton:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 18px 36px rgba(0,0,0,.12);
+
+}
+
+.recipeHeader h1{
+
+    margin:0;
+
+    margin-left:auto;
+
+    text-align:right;
+
+    font-family:"Rubik Bubbles";
+
+    font-size:clamp(2.8rem,5vw,4.8rem);
+
+    color:#20331D;
+
+    line-height:.9;
+
+}
+
+
+
+.recipeGrid{
+
+    max-width:1280px;
+
+    margin:0 auto;
+
+    position:relative;
+
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+    gap:28px;
+
+}
+
+.recipeCard{
+
+    overflow:hidden;
+
+    border-radius:24px;
+
+    background:white;
+
+    cursor:pointer;
+
+    box-shadow:0 12px 34px rgba(0,0,0,.08);
+
+    transition:transform .25s ease, box-shadow .25s ease;
+
+}
+
+.recipeCard:hover{
+
+    transform:
+        translateY(-8px)
+        scale(1.02);
+
+    box-shadow:
+        0 22px 55px rgba(0,0,0,.12);
+
+}
+
+.recipeCard img{
+
+    transition:
+        transform .35s ease;
+
+}
+
+.recipeCard:hover img{
+
+    transform:scale(1.05);
+
+}
+
+
+.recipeCard img{
+
+    width:100%;
+
+    aspect-ratio:1;
+
+    object-fit:cover;
+
+    display:block;
+
+}
+
+.lightbox{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.82);
+
+    backdrop-filter:blur(10px);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:1000;
+
+}
+
+.lightboxImage{
+
+    width:min(90vw,720px);
+
+    max-height:90vh;
+
+    border-radius:24px;
+
+    box-shadow:0 30px 80px rgba(0,0,0,.45);
+
+}
+
+.closeButton{
+
+    position:absolute;
+
+    top:30px;
+
+    right:30px;
+
+    width:56px;
+
+    height:56px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:white;
+
+    cursor:pointer;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    transition:.25s;
+
+}
+
+.closeButton:hover{
+
+    transform:scale(1.08);
+
+}
+
+.ingredientsSection{
+
+    max-width:1280px;
+
+    position:relative;
+
+
+
+    margin:0 auto 56px;
+
+}
+
+.ingredientsSection h2,
+.recipeSectionTitle{
+
+    margin:24px 0 10px;
+
+    color:#20331D;
+
+    position:relative;
+
+    text-align:center;
+
+
+    font-size:1.8rem;
+
+    font-weight:700;
+
+    letter-spacing:.5px;
+
+}
+
+.ingredientsBox{
+
+    background:white;
+
+    border:2px solid rgba(32,51,29,.08);
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.05);
+
+}
+
+.ingredientRow{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px 24px;
+
+    cursor:pointer;
+
+    transition:background .2s ease;
+
+}
+
+.ingredientRow:not(:last-child){
+
+    border-bottom:1px solid rgba(32,51,29,.08);
+
+}
+
+.ingredientRow:hover{
+
+    background:#FBF9F2;
+
+}
+
+.ingredientLeft{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+}
+
+.ingredientLeft input{
+
+    width:20px;
+
+    height:20px;
+
+    accent-color:#2E5D34;
+
+    cursor:pointer;
+
+}
+
+.ingredientLeft span{
+
+    font-size:1rem;
+
+    color:#20331D;
+
+}
+
+.ingredientQty{
+
+    font-weight:700;
+
+    color:#3F5739;
+
+    white-space:nowrap;
+
+}
+
+@media (max-width:768px){
+
+    .recipeHeader{
+
+        grid-template-columns:56px 1fr 56px;
+
+    }
+
+    .recipeTitle,
+    .recipeHeader h1{
+
+        font-size:2.4rem;
+
+    }
+
+}
+
+.cameraButton{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:12px;
+
+    margin:56px auto 0;
+
+    padding:18px 36px;
+
+    border:none;
+
+    border-radius:999px;
+
+    background:#2E5D34;
+
+    color:white;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+
+    box-shadow:
+        0 12px 30px rgba(46,93,52,.18);
+
+}
+
+.cameraButton:hover{
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 20px 42px rgba(46,93,52,.28);
+
+}

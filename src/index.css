@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Bubbles&family=DM+Sans:wght@400;500;700&family=Caveat:wght@400;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+    width: 100%;
+    min-height: 100vh;
+}
+
+body {
+    background: #F7F4EA;
+    color: #20331D;
+    font-family: "DM Sans", sans-serif;
+}
