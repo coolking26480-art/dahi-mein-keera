@@ -114,7 +114,7 @@ export default function HomePage() {
           className="ctaButton"
           onClick={() => navigate("/recipe")}
         >
-          maatchAAAAA
+          maatchaaaaaa
         </button>
 
       </div>
