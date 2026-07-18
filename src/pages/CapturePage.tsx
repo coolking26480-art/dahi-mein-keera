@@ -75,25 +75,22 @@ export default function CapturePage() {
 
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const streamRef = useRef<MediaStream | null>(null);
 
   const [photo, setPhoto] = useState<string | null>(null);
-
-    useEffect(() => {
-
-  let stream: MediaStream;
 
   async function startCamera() {
 
     try {
 
-      stream = await navigator.mediaDevices.getUserMedia({
+      streamRef.current = await navigator.mediaDevices.getUserMedia({
         video: {
           facingMode: "environment",
         },
       });
 
       if (videoRef.current) {
-        videoRef.current.srcObject = stream;
+        videoRef.current.srcObject = streamRef.current;
       }
 
     } catch {
@@ -101,20 +98,16 @@ export default function CapturePage() {
       alert("Camera permission denied.");
 
     }
-
   }
+    useEffect(() => {
 
   startCamera();
 
-  return () => {
+ return () => {
 
-    if (stream) {
+  streamRef.current?.getTracks().forEach(track => track.stop());
 
-      stream.getTracks().forEach(track => track.stop());
-
-    }
-
-  };
+};
 
 }, []);
 
@@ -139,13 +132,9 @@ export default function CapturePage() {
     ctx.drawImage(video,0,0);
 
     setPhoto(canvas.toDataURL("image/png"));
-    const stream = video.srcObject as MediaStream;
+    streamRef.current?.getTracks().forEach(track => track.stop());
 
-stream
-  ?.getTracks()
-  .forEach(track => track.stop());
   }
-
   return (
 
   <main
@@ -228,7 +217,13 @@ stream
 
       <button
         className="cameraButton"
-        onClick={() => setPhoto(null)}
+        onClick={() => {
+
+  setPhoto(null);
+
+  startCamera();
+
+}}
       >
         Retake
       </button>
