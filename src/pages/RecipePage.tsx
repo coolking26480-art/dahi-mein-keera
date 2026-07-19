@@ -4,27 +4,35 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import "../styles/recipe.css";
 
+import step1 from "../assets/steps/1.png";
+import step2 from "../assets/steps/2.png";
+import step3 from "../assets/steps/3.png";
+import step4 from "../assets/steps/4.png";
+import step5 from "../assets/steps/5.png";
+import step6 from "../assets/steps/6.png";
+import step7 from "../assets/steps/7.png";
+import step8 from "../assets/steps/8.png";
+
 const ingredients = [
   { name: "Finely grated cucumber", quantity: "½ cup" },
-  { name: "Slightly strained dahi", quantity: "1 cup" },
+  { name: "Strained curd", quantity: "1 cup" },
   { name: "Fresh lemon juice", quantity: "1 tbsp" },
-  { name: "Jeera powder", quantity: "½ tsp" },
   { name: "Extra virgin olive oil", quantity: "½ tbsp" },
-  { name: "Garlic, grated", quantity: "1½ cloves" },
-  { name: "Salt", quantity: "1 dash" },
-  { name: "Fresh coriander, chopped", quantity: "1 tbsp" },
-  { name: "Dried parsley", quantity: "1½ tsp" },
+  { name: "Garlic, grated", quantity: "1 tsp" },
+  { name: "Salt", quantity: "¼ tsp" },
+  { name: "Fresh coriander leaves, chopped", quantity: "1 tbsp" },
+  { name: "Fresh mint leaves, chopped", quantity: "½ tbsp" },
 ];
 
 const steps = [
-  "/steps/1.png",
-  "/steps/2.png",
-  "/steps/3.png",
-  "/steps/4.png",
-  "/steps/5.png",
-  "/steps/6.png",
-  "/steps/7.png",
-  "/steps/8.png",
+  step1,
+  step2,
+  step3,
+  step4,
+  step5,
+  step6,
+  step7,
+  step8,
 ];
 
 export default function RecipePage() {
